@@ -57,7 +57,7 @@ const updateGame = (bird: number, pipes: Pipes[][]): number[][] =>
       .map((e) => Array(gameSize).fill(0))
   );
 
-combineLatest(bird$, gamePipes$)
+combineLatest([bird$, gamePipes$])
   .pipe(
     scan<[number, Pipes[][]], any>(
       (state, [bird, pipes]) => ({
